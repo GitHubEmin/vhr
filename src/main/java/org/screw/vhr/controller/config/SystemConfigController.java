@@ -1,4 +1,4 @@
-package org.screw.vhr.controller;
+package org.screw.vhr.controller.config;
 
 import java.util.List;
 import org.screw.vhr.model.Menu;
@@ -16,7 +16,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/system/config")
-public class SystemConfigController {
+public class   SystemConfigController {
 
   @Resource
   MenuService menuService;
