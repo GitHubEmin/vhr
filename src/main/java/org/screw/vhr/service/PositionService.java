@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * @ClassName PositionService
- * @Description TODO
+ * @Description 职位管理
  * @Author Emin
  * @Date 2022/9/27 15:48
  * @Version 1.0
@@ -38,5 +38,9 @@ public class PositionService {
 
     public Integer deletePosition(Integer id) {
         return positionMapper.deleteByPrimaryKey(id);
+    }
+
+    public Integer deletePositionByIds(Integer[] ids) {
+        return positionMapper.deletePositionByIds(ids);
     }
 }

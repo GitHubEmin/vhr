@@ -1,7 +1,7 @@
 package org.screw.vhr.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.screw.vhr.model.Position;
-import org.screw.vhr.model.RespBean;
 
 import java.util.List;
 
@@ -20,4 +20,5 @@ public interface PositionMapper {
 
     List<Position> getAllPositions();
 
+    Integer deletePositionByIds(@Param("ids") Integer[] ids);
 }

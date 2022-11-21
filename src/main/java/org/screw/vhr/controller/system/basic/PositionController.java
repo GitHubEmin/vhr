@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * @ClassName PositionController
- * @Description TODO
+ * @Description  职位管理
  * @Author Emin
  * @Date 2022/9/27 15:42
  * @Version 1.0
@@ -49,5 +49,13 @@ public class PositionController {
             return RespBean.ok("删除成功！");
         }
         return RespBean.error("删除失败");
+    }
+
+    @DeleteMapping("/")
+    public RespBean deletePositionsByIds(Integer[] ids) {
+        if (positionService.deletePositionByIds(ids) == ids.length) {
+            return RespBean.ok("批量删除成功");
+        }
+        return RespBean.error("批量删除失败");
     }
 }

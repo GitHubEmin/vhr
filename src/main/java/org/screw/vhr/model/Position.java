@@ -12,7 +12,7 @@ public class Position {
 
     private String name;
 
-    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone = "Asia/Shanghai")
     private Date createDate;
 
     private Boolean enabled;
