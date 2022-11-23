@@ -1,5 +1,6 @@
 package org.screw.vhr.mapper;
 
+import java.util.List;
 import org.screw.vhr.model.Role;
 
 public interface RoleMapper {
@@ -14,4 +15,6 @@ public interface RoleMapper {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+  List<Role> getAllRoles();
 }

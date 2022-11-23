@@ -4,27 +4,34 @@
   <resultMap id="BaseResultMap" type="org.screw.vhr.model.Role" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="nameZh" property="namezh" jdbcType="VARCHAR" />
+    <result column="nameZh" property="nameZh" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
     id, name, nameZh
   </sql>
+  <select id="getAllRoles" resultMap="BaseResultMap">
+    select * from role
+  </select>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from role
     where id = #{id,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from role
     where id = #{id,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="org.screw.vhr.model.Role" >
     insert into role (id, name, nameZh
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{namezh,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{nameZh,jdbcType=VARCHAR}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="org.screw.vhr.model.Role" >
     insert into role
     <trim prefix="(" suffix=")" suffixOverrides="," >
@@ -34,7 +41,7 @@
       <if test="name != null" >
         name,
       </if>
-      <if test="namezh != null" >
+      <if test="nameZh != null" >
         nameZh,
       </if>
     </trim>
@@ -45,27 +52,29 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="namezh != null" >
-        #{namezh,jdbcType=VARCHAR},
+      <if test="nameZh != null" >
+        #{nameZh,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="org.screw.vhr.model.Role" >
     update role
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="namezh != null" >
-        nameZh = #{namezh,jdbcType=VARCHAR},
+      <if test="nameZh != null" >
+        nameZh = #{nameZh,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="org.screw.vhr.model.Role" >
     update role
     set name = #{name,jdbcType=VARCHAR},
-      nameZh = #{namezh,jdbcType=VARCHAR}
+      nameZh = #{nameZh,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
